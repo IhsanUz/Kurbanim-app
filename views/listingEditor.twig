@@ -1,0 +1,61 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+
+
+<div class="card  col-md-6 offset-md-3">
+   <div class="card-header">İlan Ekle</div>
+    <div class="card-body">
+        {% if error != null %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Hatalı Giriş!</strong>  {{ error }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+        <form action="/listings/editor" method="POST">
+            <div class="mb-3">
+                <label for="inputAge" class="form-label mb-0 text-muted"><small>Yaş:</small></label>
+                <select id="inputAge" name="age" class="form-control mt-0">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="inputWeight" class="form-label mb-0 text-muted"><small>Ağırlık:</small></label>
+                <input type="number" name="weight" class="form-control" id="inputWeight">
+            </div>
+
+            <div class="mb-3">
+                <label for="inputBreed" class="form-label mb-0 text-muted"><small>Tür:</small></label>
+                <select id="inputBreed" name="breed" class="form-control mt-0">
+                    <option value="Koç">Koç</option>
+                    <option value="Koyun">Koyun</option>
+                    <option value="Dana">Dana</option>
+                    <option value="Deve">Deve</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="inputCity" class="form-label mb-0 text-muted"><small>Şehir:</small></label>
+                <select id="inputCity" name="city" class="form-control mt-0">
+                    {% for city in cities %}
+                        <option value="{{city}}">{{city}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="inputDescription" class="form-label mb-0 text-muted"><small>Açıklama:</small></label>
+                <textarea id="inputDescription" class="form-control" style="resize:none" rows="4" name="description"></textarea>
+            </div>
+
+
+            <input class="btn btn-success form-control mt-3" type="submit" value="İlan Ekle">
+        </form>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

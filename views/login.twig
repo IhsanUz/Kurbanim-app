@@ -1,0 +1,24 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+
+
+<div class="card  col-md-6 offset-md-3">
+   <div class="card-header">Giriş Yap</div>
+    <div class="card-body">
+        {% if error != null %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Hatalı Giriş!</strong>  {{ error }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+        <form action="/login" method="POST">
+            <input class="form-control" type="text" name="username" placeholder="e-posta" />
+            <input class="form-control mt-3" type="password" name="password" placeholder="parola" />
+            <input class="btn btn-success form-control mt-3" type="submit" value="Giriş Yap">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

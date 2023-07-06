@@ -1,0 +1,9 @@
+{% extends 'layout.twig' %}
+{% block body %}
+{% if user != null %}
+    <h3>Hoş Geldin <ins> {{ user.username }} </ins> </h3>
+{% else %}
+    <h3>Merhaba Ziyaretçi</h3>
+{% endif %}
+
+{% endblock %}
